@@ -1,7 +1,7 @@
 """
 This is where the temperature sensor class will go.
 """
-#import Adafruit_DHT
+import Adafruit_DHT
 
 
 class TemperatureSensor:
@@ -15,8 +15,9 @@ class TemperatureSensor:
     def query_sensor(self):
         self.humidity, self.temperature = Adafruit_DHT.read_retry(self.sensor, self.pin)
 
-    def get_temperature:
+    def get_temperature(self):
         return self.temperature
 
-    def get_humidity:
+    def get_humidity(self):
         return self.temperature
+
