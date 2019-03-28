@@ -21,7 +21,7 @@ def run(tempsensor, lightsensor):
 
 
 light = lightsensor.LightSensor(0)
-temperature = temperaturesensor.TempuratureSensor(2)
+temperature = temperaturesensor.TemperatreSensor(2)
 
 run(temperature, light)
 
