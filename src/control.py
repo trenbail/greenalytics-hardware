@@ -20,8 +20,8 @@ def run(tempsensor, lightsensor):
         time.sleep(1)
 
 
-light = LightSensor(0)
-temperature = TempuratureSensor(2)
+light = lightsensor.Lightsensor(0)
+temperature = temperaturesensor.TempuratureSensor(2)
 
 run(temperature, light)
 
