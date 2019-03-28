@@ -3,7 +3,7 @@ Here is where the controller will live for the hardware
 """
 import time
 from sensor import lightsensor
-from sensor import tempuraturesensor
+from sensor import temperaturesensor
 
 
 def run(tempsensor, lightsensor):
