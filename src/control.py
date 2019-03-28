@@ -9,7 +9,7 @@ from sensor import temperaturesensor
 def run(tempsensor, lightsensor):
     while(True):
         tempsensor.query_sensor()
-        tempsensor = tempsensor.get_temperature()
+        temperature = tempsensor.get_temperature()
         humidity = tempsensor.get_humidity()
 
         lightlevel = lightsensor.get_level()
@@ -20,8 +20,8 @@ def run(tempsensor, lightsensor):
         time.sleep(1)
 
 
-light = lightsensor.LightSensor(0)
-temperature = temperaturesensor.TemperatureSensor(2)
+lightsensor = lightsensor.LightSensor(0)
+temperaturesensor = temperaturesensor.TemperatureSensor(2)
 
-run(temperature, light)
+run(temperaturesensor, lightsensor)
 
