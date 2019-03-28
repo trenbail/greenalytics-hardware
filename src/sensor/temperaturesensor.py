@@ -18,5 +18,5 @@ class TemperatureSensor:
         return self.temperature
 
     def get_humidity(self):
-        return self.temperature
+        return self.humidity
 
