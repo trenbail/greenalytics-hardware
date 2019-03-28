@@ -14,8 +14,8 @@ def run(tempsensor, lightsensor):
 
         lightlevel = lightsensor.get_level()
 
-        print("Temperature= {temperature} Humidity = {humidity}\n")
-        print("Light Level = {lightlevel}\n\n")
+        print("Temperature= {} Humidity = {}\n".format(temperature, humidity))
+        print("Light Level = {}\n\n".format(lightlevel))
 
         time.sleep(1)
 
