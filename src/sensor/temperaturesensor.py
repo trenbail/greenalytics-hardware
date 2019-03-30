@@ -3,6 +3,7 @@ This is where the temperature sensor class will go.
 """
 import Adafruit_DHT
 
+
 class TemperatureSensor:
 
     def __init__(self, pin):
