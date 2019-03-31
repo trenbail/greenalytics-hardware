@@ -10,7 +10,7 @@ class APIInterface:
         self.session = requests.Session()
 
     def post(self, url, data):
-        self.session.post(url, data=data)
+        self.session.post(url, json=data)
 
     def get_session(self):
         return self.session
