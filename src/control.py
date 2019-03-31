@@ -24,15 +24,15 @@ def run():
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(temperature)})
         r = requests.post("http://greenalytics.ga:5000/api/hardware/temperature", paramdict)
-        print(r.get_status())
+        print(r.status_code)
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(humidity)})
         r = request.post("http://greenalytics.ga:5000/api/hardware/humidity", paramdict)
-        print(r.get_status())
+        print(r.status_code)
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": lightlevel})
         r = request.post("http://greenalytics.ga:5000/api/hardware/light", paramdict)
-        print(r.get_status())
+        print(r.status_code)
 
         print("Temperature= {} Humidity = {}".format(temperature, humidity))
         print("Light Level = {}\n\n".format(lightlevel))
