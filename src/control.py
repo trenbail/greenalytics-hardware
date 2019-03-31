@@ -22,12 +22,11 @@ def run():
         light_api.post(lightlevel)
         print(light_api.get_status())
 
-        if temperature is not None or humidity is not None:
-            temperature_api.post(temperature)
-            print(temperature_api.get_status())
+        temperature_api.post(temperature)
+        print(temperature_api.get_status())
 
-            humidity_api.post(humidity)
-            print(humidity_api.get_status())
+        humidity_api.post(humidity)
+        print(humidity_api.get_status())
 
         print("Temperature= {} Humidity = {}".format(temperature, humidity))
         print("Light Level = {}\n\n".format(lightlevel))

@@ -17,6 +17,7 @@ class TemperatureSensor:
         self.humidity, temperature = Adafruit_DHT.read_retry(self.sensor, self.pin)
         while temperature is None:
             self.humidity, temperature = Adafruit_DHT.read(self.sensor, self.pin)
+            print("Error getting Temp")
             time.sleep(.5)
         self.temperature = temperature * 9/5 + 32
 
