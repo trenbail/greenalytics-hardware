@@ -11,7 +11,7 @@ from sensor import temperaturesensor
 
 
 def run():
-    #postData = APIInterface()
+    postData = APIInterface()
 
     paramdict = {"HardwareMAC": get_mac_address(),"UTCTime": time.time(), "SensorValue": None}
     while True:
@@ -23,16 +23,16 @@ def run():
         lightlevel = lightsensor.get_level()
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(temperature)})
-        r = requests.post("http://greenalytics.ga:5000/api/hardware/temperature", paramdict)
-        print(r.status_code)
+        postData.post("http://greenalytics.ga:5000/api/hardware/temperature", paramdict)
+        print(postData.status_code)
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(humidity)})
-        r = requests.post("http://greenalytics.ga:5000/api/hardware/humidity", paramdict)
-        print(r.status_code)
+        postData.post("http://greenalytics.ga:5000/api/hardware/humidity", paramdict)
+        print(postData.status_code)
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": lightlevel})
-        r = requests.post("http://greenalytics.ga:5000/api/hardware/light", paramdict)
-        print(r.status_code)
+        postData.post("http://greenalytics.ga:5000/api/hardware/light", paramdict)
+        print(postData.status_code)
 
         print("Temperature= {} Humidity = {}".format(temperature, humidity))
         print("Light Level = {}\n\n".format(lightlevel))
