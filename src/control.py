@@ -35,7 +35,7 @@ def run():
 
 
 lightsensor = lightsensor.LightSensor(0)
-temperaturesensor = temperaturesensor.TemperatureSensor(2)
+temperaturesensor = temperaturesensor.TemperatureSensor(3)
 
 run()
 
