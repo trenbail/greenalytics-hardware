@@ -14,3 +14,6 @@ class APIInterface:
 
     def get_session(self):
         return self.session
+
+    def get_status(self):
+        return self.get_status()
