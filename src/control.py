@@ -3,6 +3,7 @@ Here is where the controller will live for the hardware
 """
 
 import time
+import requests
 from getmac import get_mac_address
 from greenaliticsapi import APIInterface
 from sensor import lightsensor
@@ -10,7 +11,8 @@ from sensor import temperaturesensor
 
 
 def run():
-    postData = APIInterface()
+    #postData = APIInterface()
+    postData = requests.Session()
 
     paramdict = {"HardwareMAC": get_mac_address(),"UTCTime": time.time(), "SensorValue": None}
     while True:
@@ -23,7 +25,7 @@ def run():
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(temperature)})
         postData.post("http://greenalytics.ga:5000/api/hardware/temperature", paramdict)
-        print(postData.get_status())
+        print(postData.get_status)
 
         paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(humidity)})
         postData.post("http://greenalytics.ga:5000/api/hardware/humidity", paramdict)
