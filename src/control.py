@@ -15,9 +15,9 @@ def run():
     paramdict = {"UTCTime": time.time(), "MACID": get_mac_address(), "SensorValue": None}
     while True:
         temperaturesensor.query_sensor()
-        temperature = tempsensor.get_temperature()
+        temperature = temperaturesensor.get_temperature()
         temperature = temperature * 9/5 + 32
-        humidity = tempsensor.get_humidity()
+        humidity = temperaturesensor.get_humidity()
 
         lightlevel = lightsensor.get_level()
 
