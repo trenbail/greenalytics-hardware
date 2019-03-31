@@ -21,15 +21,15 @@ def run():
 
         lightlevel = lightsensor.get_level()
 
-        paramdict.update({"UTCTime": time.time(), "SensorValue": temperature})
+        paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(temperature)})
         #postData.post("greenalytics.ga:5000/api/hardware/temperature" , data=paramdict)
         print(paramdict)
 
-        paramdict.update({"UTCTime": time.time(), "SensorValue": humidity})
+        paramdict.update({"UTCTime": round(time.time()), "SensorValue": round(humidity)})
         #postData.post("greenalytics.ga:5000/api/hardware/humidity", data=paramdict)
         print(paramdict)
 
-        paramdict.update({"UTCTime": time.time(), "SensorValue": lightlevel})
+        paramdict.update({"UTCTime": round(time.time()), "SensorValue": lightlevel})
         #postData.post("greenalytics.ga:5000/api/hardware/light", data=paramdict)
         print(paramdict)
 
