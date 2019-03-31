@@ -12,7 +12,7 @@ from sensor import temperaturesensor
 def run():
     postData = APIInterface()
 
-    paramdict = {"UTCTime": time.time(), "HardwareMAC": get_mac_address(), "SensorValue": None}
+    paramdict = {"HardwareMAC": get_mac_address(),"UTCTime": time.time(), "SensorValue": None}
     while True:
         temperaturesensor.query_sensor()
         temperature = temperaturesensor.get_temperature()
