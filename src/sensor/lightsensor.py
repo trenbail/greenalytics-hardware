@@ -10,5 +10,5 @@ class LightSensor:
         self.value = None
 
     def get_level(self):
-        level = MCP3008(self.channel)
+        level = MCP3008(self.channel, max_voltage=5)
         return level.raw_value
