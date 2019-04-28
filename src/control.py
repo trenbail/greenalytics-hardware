@@ -6,9 +6,10 @@ import time
 from greenaliticsapi import APIInterface
 from sensor import lightsensor
 from sensor import temperaturesensor
+import sys
 
 
-def run():
+def run(arg):
     light_api = APIInterface("http://greenalytics.ga:5000/api/hardware/light")
     temperature_api = APIInterface("http://greenalytics.ga:5000/api/hardware/temperature")
     humidity_api = APIInterface("http://greenalytics.ga:5000/api/hardware/humidity")
@@ -31,15 +32,18 @@ def run():
         # Sends a Post request to the API containing the Humidity data
         humidity_api.post(humidity)
 
-        print(humidity_api.get_status())
-        print(temperature_api.get_status())
-        print(light_api.get_status())
+        if arg == 1:
+            print(humidity_api.get_status())
+            print(temperature_api.get_status())
+            print(light_api.get_status())
 
+            print("Temperature: %d, Humidity: %d, Light: %d".format(temperature,humidity,lightlevel))
         time.sleep(1)
 
 
 lightsensor = lightsensor.LightSensor(0)
 temperaturesensor = temperaturesensor.TemperatureSensor(2)
 
-run()
+if len(sys.argv) > 1:
+    run(sys.argv[1])
 
