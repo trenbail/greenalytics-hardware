@@ -3,6 +3,7 @@ This is where the temperature sensor class will go.
 """
 import Adafruit_DHT
 import datetime
+from time import sleep
 
 
 class TemperatureSensor:
@@ -17,8 +18,9 @@ class TemperatureSensor:
         self.humidity, temperature = Adafruit_DHT.read_retry(self.sensor, self.pin)
         file = open('log.txt', 'a')
         while temperature is None:
-            self.humidity, temperature = Adafruit_DHT.read(self.sensor, self.pin)
-            file.write('{}: There was an issue getting the temp'.format(datetime.datetime.now()))
+            self.humidity, temperature = Adafruit_DHT.read_retry(self.sensor, self.pin)
+            file.write('{}: There was an issue getting the temp \r\n'.format(datetime.datetime.now()))
+            sleep(2)
             print("Error getting Temp")
         file.close()
         self.temperature = temperature * 9/5 + 32
