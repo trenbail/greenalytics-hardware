@@ -38,7 +38,8 @@ def run(arg):
             print(light_api.get_status())
 
             print("Temperature: %d, Humidity: %d, Light: %d".format(temperature,humidity,lightlevel))
-        time.sleep(1)
+
+        time.sleep(2)
 
 
 lightsensor = lightsensor.LightSensor(0)
@@ -46,4 +47,6 @@ temperaturesensor = temperaturesensor.TemperatureSensor(2)
 
 if len(sys.argv) > 1:
     run(sys.argv[1])
+else:
+    run(0)
 
