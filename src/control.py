@@ -33,7 +33,7 @@ def run():
 
         print(humidity_api.get_status)
         print(temperature_api.get_status)
-        print(humidity_api.get_status)
+        print(light_api.get_status)
 
         time.sleep(1)
 
