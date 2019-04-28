@@ -37,7 +37,7 @@ def run(arg):
             print(temperature_api.get_status())
             print(light_api.get_status())
 
-            print("Temperature: %d, Humidity: %d, Light: %d".format(temperature,humidity,lightlevel))
+            print("Temperature: {}, Humidity: {}, Light: {}".format(temperature,humidity,lightlevel))
             print("\r\n")
 
         time.sleep(2)
