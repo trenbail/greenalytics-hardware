@@ -14,22 +14,22 @@ def run():
     humidity_api = APIInterface("http://greenalytics.ga:5000/api/hardware/humidity")
 
     while True:
+        #  Polls the temperature/humidity sensor for current temp
         temperaturesensor.query_sensor()
         temperature = temperaturesensor.get_temperature()
         humidity = temperaturesensor.get_humidity()
 
+        #  Polls the MCP3008 for the light data
         lightlevel = lightsensor.get_level()
+
+        # Sends a POST request to the API containing Light Data
         light_api.post(lightlevel)
-        print(light_api.get_status())
 
+        # Sends a POST request to the API containing the Temperature data
         temperature_api.post(temperature)
-        print(temperature_api.get_status())
 
+        # Sends a Post request to the API containing the Humidity data
         humidity_api.post(humidity)
-        print(humidity_api.get_status())
-
-        print("Temperature= {} Humidity = {}".format(temperature, humidity))
-        print("Light Level = {}\n\n".format(lightlevel))
 
         time.sleep(1)
 
