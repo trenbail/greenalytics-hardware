@@ -32,12 +32,13 @@ def run(arg):
         # Sends a Post request to the API containing the Humidity data
         humidity_api.post(humidity)
 
-        if arg == 1:
+        if arg == '1':
             print(humidity_api.get_status())
             print(temperature_api.get_status())
             print(light_api.get_status())
 
             print("Temperature: %d, Humidity: %d, Light: %d".format(temperature,humidity,lightlevel))
+            print("\r\n")
 
         time.sleep(2)
 
