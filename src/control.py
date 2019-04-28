@@ -31,9 +31,9 @@ def run():
         # Sends a Post request to the API containing the Humidity data
         humidity_api.post(humidity)
 
-        print(humidity_api.get_status)
-        print(temperature_api.get_status)
-        print(light_api.get_status)
+        print(humidity_api.get_status())
+        print(temperature_api.get_status())
+        print(light_api.get_status())
 
         time.sleep(1)
 
